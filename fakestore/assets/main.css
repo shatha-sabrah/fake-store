@@ -1,0 +1,206 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+body{
+    background-color: wheat;
+    color: #000000;
+    line-height: 2;
+    padding: 100px;
+    border: 4px double rgb(255, 166, 0);
+    max-width: 1200px;
+    max-height:max-content;
+    margin: 30px auto;
+}
+
+
+/* HTML: <div class="loader"></div> */
+.loader {
+  width: 60px;
+  aspect-ratio: 1;
+  color: #ffa516;
+  background:
+    linear-gradient(currentColor 0 0) 100%  0,
+    linear-gradient(currentColor 0 0) 0  100%;
+  background-size: 50.1% 50.1%;
+  background-repeat: no-repeat;
+  animation:  l7-0 1s infinite steps(1);
+  margin:50px auto;
+}
+.loader::before,
+.loader::after {
+  content:"";
+  position: absolute;
+  inset: 0 50% 50% 0;
+  background: currentColor;
+  transform: scale(var(--s,1)) perspective(150px) rotateY(0deg);
+  transform-origin: bottom right; 
+  animation: l7-1 .5s infinite linear alternate;
+}
+.loader::after {
+  --s:-1,-1;
+}
+@keyframes l7-0 {
+  0%  {transform: scaleX(1)  rotate(0deg)}
+  50% {transform: scaleX(-1) rotate(-90deg)}
+}
+@keyframes l7-1 {
+  49.99% {transform:scale(var(--s,1)) perspective(150px) rotateX(-90deg) ;filter:grayscale(0)}
+  50%    {transform:scale(var(--s,1)) perspective(150px) rotateX(-90deg) ;filter:grayscale(0.8)}
+  100%   {transform:scale(var(--s,1)) perspective(150px) rotateX(-180deg);filter:grayscale(0.8)}
+}
+
+.hidden{
+    display: none !important;
+}
+
+
+header{
+    text-align: center;
+    margin-bottom: 40px;
+}
+header h1{
+    font-size:70px;
+    font-family: cursive;
+    color: rgb(255, 166, 0);
+}
+
+.categories{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+
+}
+.categories .title{
+    color:rgb(0, 0, 0);
+    font-size: 50px;
+    text-align: center;
+    text-decoration: underline;
+}
+.categories a{
+    text-decoration: none;
+    font-size: 20px;
+    padding: 10px 20px;
+    color: black;
+}
+.categories a:hover{
+    background-color:rgb(255, 166, 0) ;
+    color: aliceblue;
+}
+.categories_row{
+    min-height: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+.products_row{
+    display: flex;
+    gap: 20px;
+
+}  
+.details-title{
+    background-color:rgb(255, 166, 0);
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+.product{
+    transition: transform .2s ease, box-shadow .2s ease;
+    background-color: white;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow:0 5px 15px rgb(0, 0, 0,.1);
+    text-align:center; 
+    margin: auto;
+} 
+.product:hover{
+    transform: translateY(-50px);
+    box-shadow: 0 5px 15px rgb(0, 5, 5,.25);
+} 
+.product-image{
+    width:300px;
+    height: 400px;
+}
+.product h2{
+    font-size: 20px;
+}
+.product span{
+    font-weight: bold;
+    color:rgb(255, 166, 0) ;
+}
+
+.my-modal{
+    background-color: rgb(0, 0, 0,.7);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.my-modal .img{
+    position: relative;
+    outline: none;
+    user-select: none;
+    
+}
+.my-modal i{
+    position: absolute;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+    background-color: brown;
+}
+
+.left-btn{
+    left: -50px;
+    transform: translateY(-50%);
+        top: 50%;
+
+}
+.right-btn{
+    right: -50px;
+    transform: translateY(-50%);
+        top: 50%;
+
+}
+.close-btn{
+    top:-30px;
+    right: -50px;
+    font-size: 28px;
+}
+.my-modal img{
+    width: 350px;
+    max-width: 90%;
+    border-radius: 10px;
+}
+.d-none{
+    display: none;
+}
+.pagination{
+    display: flex;
+    justify-content: center;
+    gap:10px;
+    margin: 30px 0;
+    list-style: none;
+}
+.pagination li button{
+    padding: 8px 14px;
+    border: none;
+    cursor: pointer
+}
+.pagination li button:hover{
+    background-color:rgb(255, 166, 0);
+    color: white;
+}
+.pagination li .active{
+    background-color: #00a8ff;
+}
